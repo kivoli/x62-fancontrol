@@ -181,12 +181,14 @@ struct temp_level {
 // 80 or so instead of 0, but on my laptop that speed produces a
 // pretty annoying noise.
 struct temp_level default_levels[] = {
-  { 40, 0, 0 },
-  { 55, 40, 20 },
-  { 70, 50, 2 },
-  { 85, 60, 110 }
+  // 2nd batch apparently uses an inverted table
+  { 40, 0, 100 },
+  { 55, 40, 99 },
+  { 65, 45, 60 },
+  { 70, 55, 20 },
+  { 85, 60, 1 },
 };
-int num_default_levels = 4;
+int num_default_levels = 5;
 
 void fan_manager(useconds_t poll_interval, int num_levels, struct temp_level levels[]) {
   int level = 0;
